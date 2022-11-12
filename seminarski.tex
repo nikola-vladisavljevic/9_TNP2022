@@ -1,0 +1,90 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+
+\begin{document}
+
+\title{Naslov seminarskog rada\\ \small{Seminarski rad u okviru kursa\\Tehničko i naučno pisanje\\ Matematički fakultet}}
+
+\author{Ime i prezime autora\\ kontakt email adresa autora}
+\date{24.~oktobar 2017.}
+\maketitle
+
+\abstract{
+U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da ispoštujete!) kao i par tehničkih pomoćnih uputstava.}
+
+\tableofcontents
+
+\newpage
+
+\section{Uvod}
+\label{sec:uvod}
+Uvod
+
+\section{O jeziku C}
+Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči\footnote{Dennis Ritchie (1941--2011), američki informatičar}. C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okvira operativnog sistema Unix. C je danas prisutan na širokom spektru platformi -- od mikrokontrolera do superračunara.
+
+Jezik C spada u grupu imperativnih, proceduralnih programskih jezika. Kako je izvorno bio namenjen za sistemsko programiranje, programerima nudi prilično direktan pristup memoriji i konstrukcije jezika su tako osmišljene da se jednostavno prevodi na mašinski jezik. Jezik je kreiran u minimalističkom duhu -- ima mali broj ključnih reči, a dodatna funkcionalnost programerima se nudi uglavnom kroz korišćenje bibliotečkih funkcija.
+
+\section{Nedostaci jezika C}
+
+\section{Razlike između jezika C i C++}
+Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.
+
+Neka od svojstava jezika C++ koja ne postoje u jeziku C su
+\begin{itemize}
+    \item mnoštvo objektnih tipova kao što su {\em vector, set, stack, queue}, implementiranih u standardnoj biblioteci
+    \item mogućnost prenosa argumenata funkcije i po referenci
+    \item range for petlje
+\end{itemize}
+
+\section{Zaključak}
+\label{sec:zakljucak}
+Zaključak
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+
+\iffalse
+\bibliography{seminarski}
+\bibliographystyle{plain}
+\fi
+
+\begin{thebibliography}{9}
+
+\bibitem{laski2009software} J. Laski and W. Stanley. \emph{Software Verification and Analysis}. Springer- Verlag, London, 2009.
+
+\bibitem{gcc} Free Software Foundation. GNU gcc, 2013. on-line at: http://gcc. gnu.org/.
+
+\bibitem{haltingproblem} A. M. Turing. \emph{On Computable Numbers, with an application to the Entscheidungsproblem}. Proceedings of the London Mathematical Society, 2(42):230–265, 1936.
+
+
+\end{thebibliography}
+
+
+\appendix
+\section{Dodatak}
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+
+
+\end{document}
