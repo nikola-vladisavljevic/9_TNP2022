@@ -57,6 +57,36 @@ Neka od svojstava jezika C++ koja ne postoje u jeziku C su
     \item range for petlje
 \end{itemize}
 
+% Ako vam se ne dopada sto tabela nije u levoj liniji sa tekstom, stavite komentar na liniu ispod a sklonite komentar sa zagrade
+\noindent\makebox[\textwidth]{
+%{
+\begingroup
+% Ako vam se cini da su celije vertikalno presiroke/preuske, menjajte parametar ispod, posle arraystretch - podrazumevano je 1
+\renewcommand*{\arraystretch}{1.2}
+\begin{tabular}{|c||c|c|}
+\hline
+Osobina & C & C++ \\
+\hline
+Programska paradigma & Imperativna & Objektno-orijentisana \\
+\hline
+Osnova & Asembler & C programski jezik \\
+\hline
+Petprocesorske direktive & ? & ?\\
+\hline
+Pristup u programiranju & S vrha - nanže & S dna - naviše\\
+\hline
+Alokacija memorije & Korišćenjem bibliotečkih funkcija & Korišćenjem ključnih reči \\
+\hline
+Prenos argumenata funkcije & Po vrednosti & Po vrednosti, moguće i po referenci\\
+\hline
+Pokazivači & podržani & podržani\\
+\hline
+Upravljanje izuzecima & nije podržano & podržano \\
+\hline
+\end{tabular}
+\endgroup
+}
+
 \section{Zaključak}
 \label{sec:zakljucak}
 Zaključak
