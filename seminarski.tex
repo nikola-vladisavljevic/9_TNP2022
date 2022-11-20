@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage{multirow}
+\usepackage{wrapfig}
 
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
@@ -23,8 +24,8 @@
 
 \title{Razlika između programskih jezika C i C++\\ \small{Seminarski rad u okviru kursa\\Tehničko i naučno pisanje\\ Matematički fakultet}}
 
-\author{Ime i prezime autora\\ kontakt email adresa autora}
-\date{24.~oktobar 2017.}
+\author{Ognjen Maksimović\\ Petar Nikolić\\ Nikola Vladisavljević\\ Nikola Čuturić}
+\date{20.~novembar 2022.}
 \maketitle
 
 \abstract{
@@ -36,7 +37,7 @@ Programski jezici C i C++ imaju veliki broj sličnosti, od zajedničke sintakse 
 
 \section{Uvod}
 \label{sec:uvod}
-Uvod
+C programski jezik je jedan od najpoznatijih programskih jezika, čija je sintaksa inspirisala mnoge druge, takođe poznate jezike. Svakako jezik C++ je najdirektniji naslednik jezika C budući da je prvobitno dizajniran kao njegovo objektno orijentisano proširenje. Međutim upravo usled navedenog, neretka je pogrešna svest ljudi (najčešće početnika), o jeziku C++ kao \textquote{novoj verziji jezika C}. Jezik C++ je doneo brojna jako potrebna unapređenja u odnosu na jezik C, o kojima ćemo više govoriti u odeljku 3. Ipak, svakako treba napomenuti da su C i C++ oba jako popularni jezici koji postoje istovremeno, pri čemu primat u datoj oblasti primene može imati jedan, drugi ili njihova kombinacija.
 
 \section{O jeziku C}
 Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči\footnote{Dennis Ritchie (1941--2011), američki informatičar}. C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okviru operativnog sistema Unix. C je danas prisutan na širokom spektru platformi -- od mikrokontrolera do superračunara.
@@ -49,7 +50,10 @@ Uprkos svojoj brzini i efikasnosti programski jezik C ima izvestan broj nedostat
 Neki od poznatijih zamerki na C su: način na koji se dinamički alocira memorija, koristeći {\em malloc} i {\em calloc}, koji može dovesti do curenja memorije ukoliko se ona ne oslobađa pravilno ili do pristupa delu memorije koji je već oslobođen što bi takođe dovelo do greske. Način na koji funkcionišu pokazivači takođe zna da bude problematičan i njihovo netačno korišćenje od strane programera može dovesti do korupcije memorije. Moguće je i da više pokazivača sadrže istu adresu i time program ne bude maksimalno optimizovan, kao što je slučaj u nekim drugim programskim jezicima. Kompajleri nisu od velike pomoći programeru i moguće je napraviti greške koje se mogu detektovati u fazi kompilacije, ali za to kompilator nije sposoban. Niske se čuvaju kao niz podataka tipa {\em char} sa terminirajućom nulom na kraju i njihovo korišćenje i obrada su veoma komplikovani i zahtevaju manipulaciju memorijom od strane programera. Ne postoji ništa što sprečava programera da piše neodrživ kod i istorijski se to dešavalo toliko često da postoje i takmičenja za pisanje što komplikovanijeg koda u programskom jeziku C. Objektno orijentisano programiranje takođe nije podržano u C-u kao i mnoge druge funkcionalnosti koje olakšavaju pisanje i održavanje koda (npr. introspekcija tipa).
 
 \section{Razlike između jezika C i C++}
-Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.
+
+Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. On je došao na ideju jezika \textquote{C sa klasama}, inspirisan klasama Simula 67 programskog jezika. Kasnije je taj projekat proširivan, inspirisan i drugim jezicima.
+\textquote{Tada sam razmatrao Modula-2, Ada, Smalltalk, Mesa i Clu kao alternative C-u i izvor ideja za C++ tako da nije bilo manjka inspiracije. Međutim samo su C, Simula, ALGOL 68 i u jednom slučaju BCPL ostavili primetnog traga u C++ iz 1985. Simula je dala klase, ALGOL 68, preopterećenje operatora, reference i mogućnost da se deklarišu promenljive bilo gde unutar bloka, a BCPL je dao // komentare.}\\
+C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.\\
 
 Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
 \begin{itemize}
@@ -70,25 +74,25 @@ Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
 \hline
 Osobina & C & C++ \\
 \hline
-Programska & \multirow{2}{5em}{Imperativna} & Objektno- \\
+Programska & \multirow{2}{5.5em}{Imperativna} & Objektno- \\
 paradigma & & -orijentisana\\
 \hline
 Osnova & Asembler & Jezik C \\
 \hline
-Petprocesorske direktive & ? & ?\\
+Pretprocesorske direktive & Podržane & Podržane\\
 \hline
 Pristup u programiranju & Sa vrha - naniže & Sa dna - naviše\\
 \hline
-Alokacija & Korišćenjem  & Korišćenjem \\
-memorije & bibliotečkih & ključnih reči\\
+\multirow{3}{4em}{Alokacija memorije} & Korišćenjem  & \multirow{3}{5.5em}{Korišćenjem ključnih reči}\\
+& bibliotečkih & \\
 & funkcija &\\
 \hline
-Prenos argumenata & Po vrednosti & Po vrednosti\\
+Prenos argumenata & \multirow{2}{5.5em}{Po vrednosti} & Po vrednosti\\
 funkcije & & i po referenci\\
 \hline
 Pokazivači & Podržani & Podržani\\
 \hline
-Upravljanje & Nije podržano & Podržano \\
+Upravljanje & \multirow{2}{6.2em}{Nije podržano} & \multirow{2}{4em}{Podržano} \\
 izuzecima & &\\
 \hline
 \end{tabular}
@@ -133,6 +137,10 @@ delova koji ima neku određenu funkciju. Za razliku od ličnih računara, koji i
 
 \subsection{Sistemsko programiranje}Sistemsko programiranje, odnosno programiranje operativnih sistema takođe zahteva jezik blizak hardveru. C programski jezik je upravo dizajniran za potrebe sistemskog programiranja i to u okviru operativnog sistema Unix. Među modernim operativnim sistemima C se najviše vezuje za Linux operativni sistem, ali većina popularnih operativnih sistema je barem značajnim delom pisana u jeziku C. O značaju C programskog jezika u sistemskom programiranju govori podatak da je u Arch Linux distrubuciji Linux operativnog sistema (poznatoj po minimalnoj instalaciji), preko 97\% programskog koda jezgra napisano u jeziku C kao i najveći deo od 27 osnovnih paketa koji omogućavaju osnovnu instalaciju sistema.
 
+\section{Gde se C++ danas koristi}
+
+Iz činjenica da je C++, zbog svoje bliskosti sa hardverom, prilično brz i efikasan jezik, a opet jednostavniji za implementaciju velikih projekata nego C, rezultovalo je to da je veliki deo za računar zahtevnog aplikativnog softvera pisan u jeziku C++. Veliki deo softvera za grafičke obrade je pisan u jeziku C++ (Adobe Photoshop, Adobe Illustrator, itd.), kao i veliki broj video igara (Unreal engine). Takođe, C++ je našao primenu u veb pregledačima kao što su Mozilla Firefox i Google Chrome, ali i softveru za rad sa bazama podataka MySQL. Kompilatori za neke više programske jezike, kao što su Java i C\# su takođe pravljeni u jeziku C++.
+
 \section{Zaključak}
 \label{sec:zakljucak}
 C i C++ su jezici sa velikim značajem, kako u istoriji programiranja tako i u današnjoj upotrebi. C je svoju upotrebu pronašao u programiranju niskog nivoa i izradi jezgara operativnih sistema, dok je C++ korišćen u softveru kome je neophodna grafika, kao što su internet pregledači, programi za obrađivanje fotografija i video zapisa i video igrama. Prilikom započinjanja novog projekta potrebno je uzeti sve navedene razlike u obzir i napraviti odluku koji od ova dva stara programska jezika, koji su i dalje u širokoj upotrebi, treba iskoristiti.
@@ -152,7 +160,9 @@ C i C++ su jezici sa velikim značajem, kako u istoriji programiranja tako i u d
 
 \bibitem{programiranje2} P. Janičić, F. Marić. \emph{Programiranje 2}. Matematički fakultet, Beograd, 2022.
 
-\bibitem{haltingproblem} A. M. Turing. \emph{On Computable Numbers, with an application to the Entscheidungsproblem}. Proceedings of the London Mathematical Society, 2(42):230–265, 1936.
+\bibitem{exceptions} A. Koenig, B. Stroustrup. \emph{Exception Handling for C++}. The Evolution of C++: Language Design in the Marketplace of Ideas, 1993.
+
+\bibitem{history} B. Stroustrup. \emph{A history of C++ 1979--1991}. History of programming languages---II. 1996. 699-769.
 
 \bibitem{Programming Embedded Systems} M. Barr, A. Massa. \emph{Programming Embedded Systems: With C and GNU Development Tools, 2nd Edition}. O'Reilly Media , 2006
 \bibitem{relevanceofc}The relevance of C in systems programming. LupLab  Department of Computer Science, at the University of California, Davis on-line at: https://luplab.cs.ucdavis.edu/2021/03/08/the-relevance-of-c-in-systems-programming.html
