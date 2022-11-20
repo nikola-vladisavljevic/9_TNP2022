@@ -39,23 +39,25 @@ Programski jezici C i C++ imaju veliki broj sličnosti, od zajedničke sintakse 
 Uvod
 
 \section{O jeziku C}
-Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči\footnote{Dennis Ritchie (1941--2011), američki informatičar}. C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okvira operativnog sistema Unix. C je danas prisutan na širokom spektru platformi -- od mikrokontrolera do superračunara.
+Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči\footnote{Dennis Ritchie (1941--2011), američki informatičar}. C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okviru operativnog sistema Unix. C je danas prisutan na širokom spektru platformi -- od mikrokontrolera do superračunara.
 
 Jezik C spada u grupu imperativnih, proceduralnih programskih jezika. Kako je izvorno bio namenjen za sistemsko programiranje, programerima nudi prilično direktan pristup memoriji i konstrukcije jezika su tako osmišljene da se jednostavno prevodi na mašinski jezik. Jezik je kreiran u minimalističkom duhu -- ima mali broj ključnih reči, a dodatna funkcionalnost programerima se nudi uglavnom kroz korišćenje bibliotečkih funkcija.
 
 \subsection{Nedostaci jezika C}
-Uprkos svojoj brzini i efikasnosti programski jezik C ima izvestan broj nedostataka, koji je možda najbolje opisan citatom Denisa Ričija, čoveka koji je napravio C: \textquote{C ima moć asemblerskih jezika i koristi se lako kao asemblerski jezici.} Asemblerski jezici su ozloglašeni po težini korišćenja i Denis Riči je ovime hteo da ukaže da je C takođe komplikovan i da ne pruža puno olakšica programerima koji ga koriste.
+Uprkos svojoj brzini i efikasnosti programski jezik C ima izvestan broj nedostataka, koje možda najbolje opisuje citat Denisa Ričija, čoveka koji je napravio C: \textquote{C ima moć asemblerskih jezika i koristi se lako kao asemblerski jezici.} Asemblerski jezici su ozloglašeni po težini korišćenja i Denis Riči je ovime hteo da ukaže da je C takođe komplikovan i da ne pruža puno olakšica programerima koji ga koriste.
 
-Neki od poznatijih zamerki na C su: način na koji se dinamički alocira memorija koristeći {\em malloc} i {\em calloc} koji može dovesti do curenja memorije ukoliko se ona ne oslobađa pravilno ili do pristupa delu memorije koji je već oslobođen što bi takođe dovelo do greske. Način na koji funkcionišu pokazivači takođe zna da bude problematičan i njihovo netačno korišćenje od strane programera može dovesti do korupcije memorije. Moguće je i da više pokazivača sadrže istu adresu i time program ne bude maksimalno optimizovan, kao što je slučaj u nekim drugim programskim jezicima. Kompajleri nisu od velike pomoći programeru i moguće je napraviti greške koje se mogu detektovati u fazi kompilacije, ali za to kompilator nije sposoban. Niske se čuvaju kao niz podataka tipa {\em char} sa terminirajućom nulom na kraju i njihovo korišćenje i obrada su veoma komplikovani i zahtevaju manipulaciju memorijom od strane programera. Ne postoji ništa što sprečava programera da piše neodrživ kod i istorijski se to dešavalo toliko često da postoje i takmičenja za pisanje što komplikovanijeg koda u programskom jeziku C. Objektno orijentisano programiranje takođe nije podržano u C-u kao i mnoge druge funkcionalnosti koje olakšavaju pisanje i održavanje koda (npr. introspekcija tipa).
+Neki od poznatijih zamerki na C su: način na koji se dinamički alocira memorija, koristeći {\em malloc} i {\em calloc}, koji može dovesti do curenja memorije ukoliko se ona ne oslobađa pravilno ili do pristupa delu memorije koji je već oslobođen što bi takođe dovelo do greske. Način na koji funkcionišu pokazivači takođe zna da bude problematičan i njihovo netačno korišćenje od strane programera može dovesti do korupcije memorije. Moguće je i da više pokazivača sadrže istu adresu i time program ne bude maksimalno optimizovan, kao što je slučaj u nekim drugim programskim jezicima. Kompajleri nisu od velike pomoći programeru i moguće je napraviti greške koje se mogu detektovati u fazi kompilacije, ali za to kompilator nije sposoban. Niske se čuvaju kao niz podataka tipa {\em char} sa terminirajućom nulom na kraju i njihovo korišćenje i obrada su veoma komplikovani i zahtevaju manipulaciju memorijom od strane programera. Ne postoji ništa što sprečava programera da piše neodrživ kod i istorijski se to dešavalo toliko često da postoje i takmičenja za pisanje što komplikovanijeg koda u programskom jeziku C. Objektno orijentisano programiranje takođe nije podržano u C-u kao i mnoge druge funkcionalnosti koje olakšavaju pisanje i održavanje koda (npr. introspekcija tipa).
 
 \section{Razlike između jezika C i C++}
 Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.
 
-Neka od svojstava jezika C++ koja ne postoje u jeziku C su
+Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
 \begin{itemize}
-    \item mnoštvo objektnih tipova kao što su {\em vector, set, stack, queue}, implementiranih u standardnoj biblioteci
-    \item mogućnost prenosa argumenata funkcije i po referenci
-    \item range for petlje
+    \item mnoštvo objektnih tipova kao što su {\em vector, set, stack, queue}, implementiranih u standardnoj biblioteci;
+    \item mogućnost prenosa argumenata funkcije i po referenci, što je elegantan način da se izbegne rad sa pokazivačima prilikom poziva funkcija;
+    \item automatsko određivanje tipa promenljive iz njene definicije;
+    \item iteratorski tipovi, koji se ponašaju slično kao pokazivači;
+    \item range for petlje koje zamenjuju idiomske petlje za prolazak kroz niz proizvoljnog tipa podataka.
 \end{itemize}
 
 % Ako vam se ne dopada sto tabela nije u levoj liniji sa tekstom, stavite komentar na liniu ispod a sklonite komentar sa zagrade
@@ -75,7 +77,7 @@ Osnova & Asembler & Jezik C \\
 \hline
 Petprocesorske direktive & ? & ?\\
 \hline
-Pristup u programiranju & Sa vrha - nanže & Sa dna - naviše\\
+Pristup u programiranju & Sa vrha - naniže & Sa dna - naviše\\
 \hline
 Alokacija & Korišćenjem  & Korišćenjem \\
 memorije & bibliotečkih & ključnih reči\\
@@ -107,7 +109,7 @@ Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pr
 
 \subsection{Upravljanje izuzecima}
 
-U standardnoj biblioteci jezika C ne postoji implementiran sistem za upravljanje greškama. To znači da je ostavljeno programeru da sam dizajnira svoj sistem koji bi se time bavio. Česta posledica ovoga je kod sa velikim brojem uslovnih grananja u svrhu provere različitih grešaka, što čini kod sporijim i manje ćitljivim.
+U standardnoj biblioteci jezika C ne postoji implementiran sistem za upravljanje greškama. To znači da je ostavljeno programeru da sam dizajnira svoj sistem koji bi se time bavio. Česta posledica ovoga je kod sa velikim brojem uslovnih grananja u svrhu provere različitih grešaka, što čini kod sporijim i manje čitljivim.
 
 Iz ovih razloga, programski jezik C++ uvodi upravljanje grešaka kroz ključne reči \emph{try, throw} i \emph{catch}. Ideja je, da se u \emph{try}-bloku nalazi kod u kojem očekujemo greške, tj. izuzetke, nakon kojeg sledi bar jedan \emph{catch}-blok koji se izvršava ako je pronađen odgovarajući izuzetak. Unutar \emph{try}-bloka se na mestu pronađene greške nalazi ključna reč \emph{throw}, koja obustavlja dalje izvršavanje bloka, i ,,baca'', tj. daje informaciju, obično vrednost prostog tipa, ili, češće, objekat sa informacijama o nastalom izuzetku. Na osnovu tipa koji je ,,bačen'', pronalazi se odgovarajući \emph{catch}-blok se izvršava, tj. on ,,hvata'' odgovarajući izuzetak.
 
@@ -133,7 +135,7 @@ delova koji ima neku određenu funkciju. Za razliku od ličnih računara, koji i
 
 \section{Zaključak}
 \label{sec:zakljucak}
-C i C++ su jezici sa velikim značajem, kako u istoriji programiranja tako i u današnjoj upotrebi. C je svoju upotrebu pronasao u programiranju niskog nivoa i izradi jezgara operativnih sistema, dok je C++ korišćen u softveru kome je neophodna grafika, kao što su internet pregledača, programima za obrađivanje fotografija i video zapisa i video igrama. Prilikom započinjanja novog projekta potrebno je uzeti sve navedene razlike u obzir i napraviti odluku koji od ova dva stara programska jezika, koji su i dalje u širokoj upotrebi, treba iskoristiti.
+C i C++ su jezici sa velikim značajem, kako u istoriji programiranja tako i u današnjoj upotrebi. C je svoju upotrebu pronašao u programiranju niskog nivoa i izradi jezgara operativnih sistema, dok je C++ korišćen u softveru kome je neophodna grafika, kao što su internet pregledači, programi za obrađivanje fotografija i video zapisa i video igrama. Prilikom započinjanja novog projekta potrebno je uzeti sve navedene razlike u obzir i napraviti odluku koji od ova dva stara programska jezika, koji su i dalje u širokoj upotrebi, treba iskoristiti.
 
 
 \addcontentsline{toc}{section}{Literatura}
@@ -146,23 +148,17 @@ C i C++ su jezici sa velikim značajem, kako u istoriji programiranja tako i u d
 
 \begin{thebibliography}{9}
 
-\bibitem{laski2009software} J. Laski and W. Stanley. \emph{Software Verification and Analysis}. Springer- Verlag, London, 2009.
+\bibitem{programiranje1} F. Marić, P. Janičić. \emph{Programiranje 1}. Matematički fakultet, Beograd, 2015.
 
-\bibitem{gcc} Free Software Foundation. GNU gcc, 2013. on-line at: http://gcc. gnu.org/.
+\bibitem{programiranje2} P. Janičić, F. Marić. \emph{Programiranje 2}. Matematički fakultet, Beograd, 2022.
 
 \bibitem{haltingproblem} A. M. Turing. \emph{On Computable Numbers, with an application to the Entscheidungsproblem}. Proceedings of the London Mathematical Society, 2(42):230–265, 1936.
 
-
+\bibitem{Programming Embedded Systems} M. Barr, A. Massa. \emph{Programming Embedded Systems: With C and GNU Development Tools, 2nd Edition}. O'Reilly Media , 2006
+\bibitem{relevanceofc}The relevance of C in systems programming. LupLab  Department of Computer Science, at the University of California, Davis on-line at: https://luplab.cs.ucdavis.edu/2021/03/08/the-relevance-of-c-in-systems-programming.html
+\bibitem{efficiency} R. Pereira, M. Couto, F. Ribeiro, R. Rua, J. Cunha, J. Paulo Fernandes, J. Saraiva.  \emph{Energy Efficiency across Programming Languages}. SLE 2017: Proceedings of the 10th ACM SIGPLAN International Conference on Software Language Engineering, Pages 256–267, October 2017.
 \end{thebibliography}
-
-
-\appendix
-\section{Dodatak}
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
-
-
+%\appendix
+%\section{Dodatak}
+%Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
 \end{document}
