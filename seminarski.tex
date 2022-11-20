@@ -75,7 +75,7 @@ Osnova & Asembler & Jezik C \\
 \hline
 Petprocesorske direktive & ? & ?\\
 \hline
-Pristup u programiranju & S vrha - nanže & S dna - naviše\\
+Pristup u programiranju & Sa vrha - nanže & Sa dna - naviše\\
 \hline
 Alokacija & Korišćenjem  & Korišćenjem \\
 memorije & bibliotečkih & ključnih reči\\
@@ -93,6 +93,28 @@ izuzecima & &\\
 %\endgroup
 %}
 
+\subsection{Pristupi u programiranju}
+
+Govorićemo o dva pristupa programiranju: pristup ,,sa vrha - naniže'' i pristup ,,sa dna - naviše''. Prvi, ,,sa vrha - naniže'', podrazumeva da se pri rešavanju problema, veći problem razdvoji na manje celine kroz proces koji se naziva dekompozicija. Pristup ,,sa dna - naviše'' je poprilično zastupljen u jeziku C, s obzirom na to da se program najčešće kreira tako što se prvo razume problem koji program treba rešiti, a potom napiše glavna funkcija iz koje se pozivaju podfunkcije koje problem dele na manje celine. Ove podfunkcije su uglavnom nezavisne, tj. ne postoji komunikacija između njih.
+
+Sa druge strane, sa objekno-orijentisanim jezicima, dosta pristupačniji postaje pristup ,,sa dna - naviše''. Sa ovakvim pristupom polazi se od manjih celina koje se potom sklapaju u veće, sve dok se ne dođe do ciljnog programa. Ovaj proces naziva se kompozicija. Svaka celina se prvo zasebno testira pre nego što se integriše sa drugim celinama. Ovakav pristup je prikladniji kada se na programu radi sa već postojećim komponentama. Za razliku od pristupa ,,sa vrha - naniže'', komunikacija između celina je veoma važna. Ipak, u radu na većini projekata se koristi hibrid između ova dva pristupa, npr. pristup ,,sa vrha - naniže'' se često koristi pri debagovanju i pisanju dokumentacije, dok se pristup ,,sa dna - naviše'' češće koristi pri testiranju.
+
+\subsection{Dinamička alokacija memorije}
+
+Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pretežno koristeći se funkcijama \emph{malloc, calloc, realloc} i \emph{free}. Iako C++ podržava ove funkcije, ponuđena je i nova alternativa. Koriščenjem ključnih reči \emph{new} i \emph{delete}, moguće je na nešto jednostavniji i elegantniji način upravljati dinamički alociranom memorijom. Ovi operatori, iako funkcionišu na sličan način kao i funkcije \emph{malloc} i \emph{free}, proširuju mougćnosti u skladu sa objektno-orijentisanom paradigmom. To znači da pri alokaciji memorije za objekte korišćenjem operatora \emph{new}, poziva se i konstruktor klase datog objekta, što nije slučaj pri upotrebi funkcije \emph{malloc}. Analogno važi i za operator \emph{delete} i funkciju \emph{free}.
+
+% možda primer koda
+
+\subsection{Upravljanje izuzecima}
+
+U standardnoj biblioteci jezika C ne postoji implementiran sistem za upravljanje greškama. To znači da je ostavljeno programeru da sam dizajnira svoj sistem koji bi se time bavio. Česta posledica ovoga je kod sa velikim brojem uslovnih grananja u svrhu provere različitih grešaka, što čini kod sporijim i manje ćitljivim.
+
+Iz ovih razloga, programski jezik C++ uvodi upravljanje grešaka kroz ključne reči \emph{try, throw} i \emph{catch}. Ideja je, da se u \emph{try}-bloku nalazi kod u kojem očekujemo greške, tj. izuzetke, nakon kojeg sledi bar jedan \emph{catch}-blok koji se izvršava ako je pronađen odgovarajući izuzetak. Unutar \emph{try}-bloka se na mestu pronađene greške nalazi ključna reč \emph{throw}, koja obustavlja dalje izvršavanje bloka, i ,,baca'', tj. daje informaciju, obično vrednost prostog tipa, ili, češće, objekat sa informacijama o nastalom izuzetku. Na osnovu tipa koji je ,,bačen'', pronalazi se odgovarajući \emph{catch}-blok se izvršava, tj. on ,,hvata'' odgovarajući izuzetak.
+
+Ovakav pristup upravljanju izuzecima ima dve značajne prednosti. Prvo, kod koji se bavi izuzecima je odvojen od glavnog koda, što poboljšava razumljivost. Drugo, omogućeno je programeru da bira, koje će izuzetke obraditi. Naime, pošto je moguće pri različitim izuzecima ,,baciti'' različite tipove vrednosti, moguće je birati koje tipove vrednosti ili klase objekata obrađivati zasebno, a koje ne.
+
+% možda primer koda
+
 \section{Gde se C danas koristi}
 Iako je programski jezik C bio namenjen pre svega pisanju sistemskog softvera, usled njegove velike popularnosti koristio se i kao jezik opšte namene. Vremenom su mnoge uloge koje je programski jezik C imao od svog nastanka 1972. godine preuzeli drugi, moderniji programski jezici. Međutim i danas 50 godina nakon svog nastanka programski jezik C ima veliku popularnost. Neke od oblasti primena programskog jezika C danas su:
 \begin{itemize}
@@ -102,9 +124,11 @@ Iako je programski jezik C bio namenjen pre svega pisanju sistemskog softvera, u
     \item u obrazovanju.
 \end{itemize}
 C programski jezik imam najveću primenu u pisanju programa \textquote{bliskih hardveru}. To nije slučajnost budući da je jezik od početka tako dizajniran. Prema rečima Brajana Kernigena\footnote{Brian W. Kernighan (1942), kanadski informatičar} i Denis Ričija \textquote{C je jezik dosta {\em niskog nivoa}. Ta karakterizacija nije pežorativna; to samo znači da se C nosi sa objektima na sličan način kao i većina računara}. Razlog što je C uspešan u oblastima kao što su sistemsko programiranje i programiranje ugrađenih sistema je u tome što nudi mnoge prednosti jezika višeg nivoa uz jako malo žrtvovanja u odnosu na programiranje na asembleru. Neke od prednosti u odnosu na asembler su lakše i udobnije pisanje čitkog i kompaktnog koda na jeziku koji poznatom velikom broju programera kao i visok nivo prenosivosti koda. C kompilatori su dostupni za većinu današnjih procesora, što oslobađa programera od brige o implementaciji konkretne procesorske arhitekture. Sa druge strane u odnosu na većinu viših programskih jezika, C nudi visok nivo kontrole nad hardverom i veoma visoku efikasnost u izvršavanju programa.
+
 \subsection{Programiranje ugrađenih sistema}
 Ugrađeni sistem je kombinacija računarskog hardvera i softvera kao i drugih mehaničkih i električnih
 delova koji ima neku određenu funkciju. Za razliku od ličnih računara, koji imaju mnoštvo različitih funkcija i primena, ugrađeni sistemi obično imaju jednu konkretnu svrhu često kao deo nekog većeg sistema. Primeri su mnogobrojni uređaji u automobilima (npr. čipovi koji kontrolišu rad ABS sistema), jednostavni digitalni časovnici, razni uređaji u  domaćinstvu i drugi. Budući da su mogućnosti takvih sitema često jako ograničene u smislu memorije i procesorske snage, pre svega radi uštede na ceni i dimenzijama uređaja, efikasnost programa je jako bitna. Upravo zbog toga je C pogodan za tu namenu više nego i jedan drugi jezik. Osim C-a se često se koriste i asembler i C++, međutim prednosti koje C++ donosi često nisu vredne gubitaka na efikasnosti osim kod jako velikih razvojnih timova.
+
 \subsection{Sistemsko programiranje}Sistemsko programiranje, odnosno programiranje operativnih sistema takođe zahteva jezik blizak hardveru. C programski jezik je upravo dizajniran za potrebe sistemskog programiranja i to u okviru operativnog sistema Unix. Među modernim operativnim sistemima C se najviše vezuje za Linux operativni sistem, ali većina popularnih operativnih sistema je barem značajnim delom pisana u jeziku C. O značaju C programskog jezika u sistemskom programiranju govori podatak da je u Arch Linux distrubuciji Linux operativnog sistema (poznatoj po minimalnoj instalaciji), preko 97\% programskog koda jezgra napisano u jeziku C kao i najveći deo od 27 osnovnih paketa koji omogućavaju osnovnu instalaciju sistema.
 
 \section{Zaključak}
