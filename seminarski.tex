@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
 \usepackage{csquotes}
+\usepackage{multirow}
 
 \usepackage[english,serbian]{babel}
 %\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
@@ -27,7 +28,7 @@
 \maketitle
 
 \abstract{
-U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da ispoštujete!) kao i par tehničkih pomoćnih uputstava.}
+Programski jezici C i C++ imaju veliki broj sličnosti, od zajedničke sintakse do sličnih standardnih biblioteka. Međutim, u jezik C++ su ugrađene brojne funkcionalnosti i proširenja standardne biblioteke koja značajno olakšavaju pisanje programa u ovom jeziku u odnosu na jezik C. U ovom radu navodimo neke od nedostataka jezika C koji su bili motivacija za stvaranje jezika C++, razlike između ova dva jezika, kao i gde se oni danas koriste.
 
 \tableofcontents
 
@@ -42,7 +43,7 @@ Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio
 
 Jezik C spada u grupu imperativnih, proceduralnih programskih jezika. Kako je izvorno bio namenjen za sistemsko programiranje, programerima nudi prilično direktan pristup memoriji i konstrukcije jezika su tako osmišljene da se jednostavno prevodi na mašinski jezik. Jezik je kreiran u minimalističkom duhu -- ima mali broj ključnih reči, a dodatna funkcionalnost programerima se nudi uglavnom kroz korišćenje bibliotečkih funkcija.
 
-\section{Nedostaci jezika C}
+\subsection{Nedostaci jezika C}
 Uprkos svojoj brzini i efikasnosti programski jezik C ima izvestan broj nedostataka, koji je možda najbolje opisan citatom Denisa Ričija, čoveka koji je napravio C: \textquote{C ima moć asemblerskih jezika i koristi se lako kao asemblerski jezici.} Asemblerski jezici su ozloglašeni po težini korišćenja i Denis Riči je ovime hteo da ukaže da je C takođe komplikovan i da ne pruža puno olakšica programerima koji ga koriste.
 
 Neki od poznatijih zamerki na C su: način na koji se dinamički alocira memorija koristeći {\em malloc} i {\em calloc} koji može dovesti do curenja memorije ukoliko se ona ne oslobađa pravilno ili do pristupa delu memorije koji je već oslobođen što bi takođe dovelo do greske. Način na koji funkcionišu pokazivači takođe zna da bude problematičan i njihovo netačno korišćenje od strane programera može dovesti do korupcije memorije. Moguće je i da više pokazivača sadrže istu adresu i time program ne bude maksimalno optimizovan, kao što je slučaj u nekim drugim programskim jezicima. Kompajleri nisu od velike pomoći programeru i moguće je napraviti greške koje se mogu detektovati u fazi kompilacije, ali za to kompilator nije sposoban. Niske se čuvaju kao niz podataka tipa {\em char} sa terminirajućom nulom na kraju i njihovo korišćenje i obrada su veoma komplikovani i zahtevaju manipulaciju memorijom od strane programera. Ne postoji ništa što sprečava programera da piše neodrživ kod i istorijski se to dešavalo toliko često da postoje i takmičenja za pisanje što komplikovanijeg koda u programskom jeziku C. Objektno orijentisano programiranje takođe nije podržano u C-u kao i mnoge druge funkcionalnosti koje olakšavaju pisanje i održavanje koda (npr. introspekcija tipa).
@@ -56,6 +57,55 @@ Neka od svojstava jezika C++ koja ne postoje u jeziku C su
     \item mogućnost prenosa argumenata funkcije i po referenci
     \item range for petlje
 \end{itemize}
+
+% Ako vam se ne dopada sto tabela nije u levoj liniji sa tekstom, stavite komentar na liniu ispod a sklonite komentar sa zagrade
+%\noindent\makebox[\textwidth]{
+%{
+%\begingroup
+% Ako vam se cini da su celije vertikalno presiroke/preuske, menjajte parametar ispod, posle arraystretch - podrazumevano je 1
+%\renewcommand*{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+Osobina & C & C++ \\
+\hline
+Programska & \multirow{2}{5em}{Imperativna} & Objektno- \\
+paradigma & & -orijentisana\\
+\hline
+Osnova & Asembler & Jezik C \\
+\hline
+Petprocesorske direktive & ? & ?\\
+\hline
+Pristup u programiranju & S vrha - nanže & S dna - naviše\\
+\hline
+Alokacija & Korišćenjem  & Korišćenjem \\
+memorije & bibliotečkih & ključnih reči\\
+& funkcija &\\
+\hline
+Prenos argumenata & Po vrednosti & Po vrednosti\\
+funkcije & & i po referenci\\
+\hline
+Pokazivači & Podržani & Podržani\\
+\hline
+Upravljanje & Nije podržano & Podržano \\
+izuzecima & &\\
+\hline
+\end{tabular}
+%\endgroup
+%}
+
+\section{Gde se C danas koristi}
+Iako je programski jezik C bio namenjen pre svega pisanju sistemskog softvera, usled njegove velike popularnosti koristio se i kao jezik opšte namene. Vremenom su mnoge uloge koje je programski jezik C imao od svog nastanka 1972. godine preuzeli drugi, moderniji programski jezici. Međutim i danas 50 godina nakon svog nastanka programski jezik C ima veliku popularnost. Neke od oblasti primena programskog jezika C danas su:
+\begin{itemize}
+    \item operativni sistemi;
+    \item programiranje ugrađenih sistema;
+    \item izrada kompilatora i interpretatora;
+    \item u obrazovanju.
+\end{itemize}
+C programski jezik imam najveću primenu u pisanju programa \textquote{bliskih hardveru}. To nije slučajnost budući da je jezik od početka tako dizajniran. Prema rečima Brajana Kernigena\footnote{Brian W. Kernighan (1942), kanadski informatičar} i Denis Ričija \textquote{C je jezik dosta {\em niskog nivoa}. Ta karakterizacija nije pežorativna; to samo znači da se C nosi sa objektima na sličan način kao i većina računara}. Razlog što je C uspešan u oblastima kao što su sistemsko programiranje i programiranje ugrađenih sistema je u tome što nudi mnoge prednosti jezika višeg nivoa uz jako malo žrtvovanja u odnosu na programiranje na asembleru. Neke od prednosti u odnosu na asembler su lakše i udobnije pisanje čitkog i kompaktnog koda na jeziku koji poznatom velikom broju programera kao i visok nivo prenosivosti koda. C kompilatori su dostupni za većinu današnjih procesora, što oslobađa programera od brige o implementaciji konkretne procesorske arhitekture. Sa druge strane u odnosu na većinu viših programskih jezika, C nudi visok nivo kontrole nad hardverom i veoma visoku efikasnost u izvršavanju programa.
+\subsection{Programiranje ugrađenih sistema}
+Ugrađeni sistem je kombinacija računarskog hardvera i softvera kao i drugih mehaničkih i električnih
+delova koji ima neku određenu funkciju. Za razliku od ličnih računara, koji imaju mnoštvo različitih funkcija i primena, ugrađeni sistemi obično imaju jednu konkretnu svrhu često kao deo nekog većeg sistema. Primeri su mnogobrojni uređaji u automobilima (npr. čipovi koji kontrolišu rad ABS sistema), jednostavni digitalni časovnici, razni uređaji u  domaćinstvu i drugi. Budući da su mogućnosti takvih sitema često jako ograničene u smislu memorije i procesorske snage, pre svega radi uštede na ceni i dimenzijama uređaja, efikasnost programa je jako bitna. Upravo zbog toga je C pogodan za tu namenu više nego i jedan drugi jezik. Osim C-a se često se koriste i asembler i C++, međutim prednosti koje C++ donosi često nisu vredne gubitaka na efikasnosti osim kod jako velikih razvojnih timova.
+\subsection{Sistemsko programiranje}Sistemsko programiranje, odnosno programiranje operativnih sistema takođe zahteva jezik blizak hardveru. C programski jezik je upravo dizajniran za potrebe sistemskog programiranja i to u okviru operativnog sistema Unix. Među modernim operativnim sistemima C se najviše vezuje za Linux operativni sistem, ali većina popularnih operativnih sistema je barem značajnim delom pisana u jeziku C. O značaju C programskog jezika u sistemskom programiranju govori podatak da je u Arch Linux distrubuciji Linux operativnog sistema (poznatoj po minimalnoj instalaciji), preko 97\% programskog koda jezgra napisano u jeziku C kao i najveći deo od 27 osnovnih paketa koji omogućavaju osnovnu instalaciju sistema.
 
 \section{Zaključak}
 \label{sec:zakljucak}
