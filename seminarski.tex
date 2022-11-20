@@ -36,7 +36,7 @@ Programski jezici C i C++ imaju veliki broj sličnosti, od zajedničke sintakse 
 
 \section{Uvod}
 \label{sec:uvod}
-Uvod
+C programski jezik je jedan od najpoznatijih programskih jezika, čija je sintaksa inspirisala mnoge druge, takođe poznate jezike. Svakako jezik C++ je najdirektniji naslednik jezika C budući da je prvobitno dizajniran kao njegovo objektno orijentisano proširenje. Međutim upravo usled navedenog, neretka je pogrešna svest ljudi(najčešće početnika), o jeziku C++ kao ``novoj verziji jezika C''. Jezik C++ je doneo brojna jako potrebna unapređenja u odnosu na jezik C, o kojima ćemo više govoriti u odeljku 3. Ipak, svakako treba napomenuti da su C i C++  oba jako popularni jezici koji postoje istovremeno, pri čemu primat u datoj oblasti primene može imati jedan, drugi ili njihova kombinacija. 
 
 \section{O jeziku C}
 Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči\footnote{Dennis Ritchie (1941--2011), američki informatičar}. C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okviru operativnog sistema Unix. C je danas prisutan na širokom spektru platformi -- od mikrokontrolera do superračunara.
@@ -49,7 +49,7 @@ Uprkos svojoj brzini i efikasnosti programski jezik C ima izvestan broj nedostat
 Neki od poznatijih zamerki na C su: način na koji se dinamički alocira memorija, koristeći {\em malloc} i {\em calloc}, koji može dovesti do curenja memorije ukoliko se ona ne oslobađa pravilno ili do pristupa delu memorije koji je već oslobođen što bi takođe dovelo do greske. Način na koji funkcionišu pokazivači takođe zna da bude problematičan i njihovo netačno korišćenje od strane programera može dovesti do korupcije memorije. Moguće je i da više pokazivača sadrže istu adresu i time program ne bude maksimalno optimizovan, kao što je slučaj u nekim drugim programskim jezicima. Kompajleri nisu od velike pomoći programeru i moguće je napraviti greške koje se mogu detektovati u fazi kompilacije, ali za to kompilator nije sposoban. Niske se čuvaju kao niz podataka tipa {\em char} sa terminirajućom nulom na kraju i njihovo korišćenje i obrada su veoma komplikovani i zahtevaju manipulaciju memorijom od strane programera. Ne postoji ništa što sprečava programera da piše neodrživ kod i istorijski se to dešavalo toliko često da postoje i takmičenja za pisanje što komplikovanijeg koda u programskom jeziku C. Objektno orijentisano programiranje takođe nije podržano u C-u kao i mnoge druge funkcionalnosti koje olakšavaju pisanje i održavanje koda (npr. introspekcija tipa).
 
 \section{Razlike između jezika C i C++}
-Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.
+Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. On je došao na ideju jezika ``C sa klasama'', inspirisan klasama Simula 67 programskog jezika. Kasnije je taj projekat proširivan, inspirisan i drugim jezicima. \textquote{Tada sam razmatrao Modula-2, Ada, Smalltalk, Mesa i Clu kao alternative C-u i izvor ideja za C++ tako da nije bilo manjka inspiracije. Međutim samo su C, Simula, ALGOL 68 i u jednom slučaju BCPL ostavili primetnog traga u C++ iz 1985. Simula je dala klase, ALGOL 68, preopterećenje operatora, reference i mogućnost da se deklarišu promenljive bilo gde unutar bloka,   a BCPL je dao // komentare}. 
 
 Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
 \begin{itemize}
@@ -94,6 +94,8 @@ izuzecima & &\\
 \end{tabular}
 %\endgroup
 %}
+
+ C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.
 
 \subsection{Pristupi u programiranju}
 
