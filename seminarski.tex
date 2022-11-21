@@ -64,12 +64,6 @@ Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
     \item range for petlje koje zamenjuju idiomske petlje za prolazak kroz niz proizvoljnog tipa podataka.
 \end{itemize}
 
-% Ako vam se ne dopada sto tabela nije u levoj liniji sa tekstom, stavite komentar na liniu ispod a sklonite komentar sa zagrade
-%\noindent\makebox[\textwidth]{
-%{
-%\begingroup
-% Ako vam se cini da su celije vertikalno presiroke/preuske, menjajte parametar ispod, posle arraystretch - podrazumevano je 1
-%\renewcommand*{\arraystretch}{1.2}
 \begin{tabular}{|c|c|c|}
 \hline
 Osobina & C & C++ \\
@@ -96,8 +90,6 @@ Upravljanje & \multirow{2}{6.2em}{Nije podržano} & \multirow{2}{4em}{Podržano}
 izuzecima & &\\
 \hline
 \end{tabular}
-%\endgroup
-%}
 
 \subsection{Pristupi u programiranju}
 
@@ -109,7 +101,11 @@ Sa druge strane, sa objekno-orijentisanim jezicima, dosta pristupačniji postaje
 
 Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pretežno koristeći se funkcijama \emph{malloc, calloc, realloc} i \emph{free}. Iako C++ podržava ove funkcije, ponuđena je i nova alternativa. Koriščenjem ključnih reči \emph{new} i \emph{delete}, moguće je na nešto jednostavniji i elegantniji način upravljati dinamički alociranom memorijom. Ovi operatori, iako funkcionišu na sličan način kao i funkcije \emph{malloc} i \emph{free}, proširuju mougćnosti u skladu sa objektno-orijentisanom paradigmom. To znači da pri alokaciji memorije za objekte korišćenjem operatora \emph{new}, poziva se i konstruktor klase datog objekta, što nije slučaj pri upotrebi funkcije \emph{malloc}. Analogno važi i za operator \emph{delete} i funkciju \emph{free}.
 
-% možda primer koda
+Dati su primeri dinamičke alokacije u jeziku C, potom i jeziku C++.
+
+\includegraphics[scale=0.5]{c_kod_dinamicka_alokacija.eps}
+
+\includegraphics[scale=0.5]{cpp_kod_dinamicka_alokacija.eps}
 
 \subsection{Upravljanje izuzecima}
 
