@@ -99,13 +99,36 @@ Sa druge strane, sa objekno-orijentisanim jezicima, dosta pristupačniji postaje
 
 \subsection{Dinamička alokacija memorije}
 
-Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pretežno koristeći se funkcijama \emph{malloc, calloc, realloc} i \emph{free}. Iako C++ podržava ove funkcije, ponuđena je i nova alternativa. Koriščenjem ključnih reči \emph{new} i \emph{delete}, moguće je na nešto jednostavniji i elegantniji način upravljati dinamički alociranom memorijom. Ovi operatori, iako funkcionišu na sličan način kao i funkcije \emph{malloc} i \emph{free}, proširuju mougćnosti u skladu sa objektno-orijentisanom paradigmom. To znači da pri alokaciji memorije za objekte korišćenjem operatora \emph{new}, poziva se i konstruktor klase datog objekta, što nije slučaj pri upotrebi funkcije \emph{malloc}. Analogno važi i za operator \emph{delete} i funkciju \emph{free}.
+Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pretežno koristeći se funkcijama \emph{malloc, calloc, realloc} i \emph{free}. Iako C++ podržava ove funkcije, ponuđena je i nova alternativa. Koriščenjem ključnih reči \emph{new} i \emph{delete}, moguće je na nešto jednostavniji i elegantniji način upravljati dinamički alociranom memorijom. Ovi operatori, iako funkcionišu na sličan način kao i funkcije \emph{malloc} i \emph{free}, proširuju mougćnosti u skladu sa objektno-orijentisanom paradigmom. To znači da pri alokaciji memorije za objekte korišćenjem operatora \emph{new}, poziva se i konstruktor klase datog objekta, što nije slučaj pri upotrebi funkcije \emph{malloc}. Analogno važi i za operator \emph{delete} i funkciju \emph{free}. Primer alokacije daćemo kroz dva primer istog programa u jeziciima C i C++ koji dinamički alocira niz celih brojeva, koji se unose, a potom ispisuju.
 
-Dati su primeri dinamičke alokacije u jeziku C, potom i jeziku C++.
+\begin{primer} Program koji učitava vrednosti u dinamički alociran niz, a potom ih ispisuje, napisan u jeziku C.
 
-\includegraphics[scale=0.5]{c_kod_dinamicka_alokacija.eps}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{c_kod_dinamicka_alokacija.eps}
+\end{center}
+\caption{Kod programa napisan u jeziku C}
+\label{fig:ckod}
+\end{figure}
 
-\includegraphics[scale=0.5]{cpp_kod_dinamicka_alokacija.eps}
+Na slici \ref{fig:ckod} prikazan je način na koji se u jeziku C obično sprovodi kreiranje, pristupanje, i oslobađanje dinamički alocirane memorije. 
+\end{primer}
+
+\begin{primer} Program koji učitava vrednosti u dinamički alociran niz, a potom ih ispisuje, napisan u jeziku C++.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{cpp_kod_dinamicka_alokacija.eps}
+\end{center}
+\caption{Kod programa napisan u jeziku C++}
+\label{fig:cppkod}
+\end{figure}
+
+Na slici \ref{fig:cppkod} prikazan je način na koji se u jeziku C++ obično sprovodi kreiranje, pristupanje, i oslobađanje dinamički alocirane memorije.
+\end{primer}
+
+Način na koji se manipuliše dinamički alociranom memorijom potpuno je analogan koršćenom u jeziku C, na slici \ref{fig:ckod}, mada je jednostavnija sintaksa jezika C++ često lakša za upotrebu u složenijim slučajevima.
+
 
 \subsection{Upravljanje izuzecima}
 
