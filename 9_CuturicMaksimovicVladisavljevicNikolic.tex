@@ -29,7 +29,7 @@
 \maketitle
 
 \abstract{
-Programski jezici C i C++ imaju veliki broj sličnosti, od zajedničke sintakse do sličnih standardnih biblioteka. Međutim, u jezik C++ su ugrađene brojne funkcionalnosti i proširenja standardne biblioteke koja značajno olakšavaju pisanje programa u ovom jeziku u odnosu na jezik C. U ovom radu navodimo neke od nedostataka jezika C koji su bili motivacija za stvaranje jezika C++, razlike između ova dva jezika, kao i gde se oni danas koriste.
+Programski jezici C i C++ imaju veliki broj sličnosti, od zajedničke sintakse do sličnih standardnih biblioteka. Međutim, u jezik C++ su ugrađene brojne funkcionalnosti i proširenja standardne biblioteke koja značajno olakšavaju pisanje programa u ovom jeziku u odnosu na jezik C. U ovom radu navodimo neke od nedostataka jezika C koji su bili motivacija za stvaranje jezika C++, razlike između ova dva jezika, kao i gde se oni danas koriste.}
 
 \tableofcontents
 
@@ -42,7 +42,7 @@ C programski jezik je jedan od najpoznatijih programskih jezika, čija je sintak
 \section{O jeziku C}
 Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči\footnote{Dennis Ritchie (1941--2011), američki informatičar}. C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okviru operativnog sistema Unix. C je danas prisutan na širokom spektru platformi -- od mikrokontrolera do superračunara.
 
-Jezik C spada u grupu imperativnih, proceduralnih programskih jezika. Kako je izvorno bio namenjen za sistemsko programiranje, programerima nudi prilično direktan pristup memoriji i konstrukcije jezika su tako osmišljene da se jednostavno prevodi na mašinski jezik. Jezik je kreiran u minimalističkom duhu -- ima mali broj ključnih reči, a dodatna funkcionalnost programerima se nudi uglavnom kroz korišćenje bibliotečkih funkcija.
+Jezik C spada u grupu imperativnih, proceduralnih programskih jezika. Kako je izvorno bio namenjen za sistemsko programiranje, programerima nudi prilično direktan pristup memoriji i konstrukcije jezika su tako osmišljene da se jednostavno prevodi na mašinski jezik. Jezik je kreiran u minimalističkom duhu -- ima mali broj ključnih reči, a dodatna funkcionalnost programerima se nudi uglavnom kroz korišćenje bibliotečkih funkcija.\cite{programiranje1}
 
 \subsection{Nedostaci jezika C}
 Uprkos svojoj brzini i efikasnosti programski jezik C ima izvestan broj nedostataka, koje možda najbolje opisuje citat Denisa Ričija, čoveka koji je napravio C: \textquote{C ima moć asemblerskih jezika i koristi se lako kao asemblerski jezici.} Asemblerski jezici su ozloglašeni po težini korišćenja i Denis Riči je ovime hteo da ukaže da je C takođe komplikovan i da ne pruža puno olakšica programerima koji ga koriste.
@@ -51,9 +51,9 @@ Neki od poznatijih zamerki na C su: način na koji se dinamički alocira memorij
 
 \section{Razlike između jezika C i C++}
 
-Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine. On je došao na ideju jezika \textquote{C sa klasama}, inspirisan klasama Simula 67 programskog jezika. Kasnije je taj projekat proširivan, inspirisan i drugim jezicima.
+Najznačajniji direktni naslednik jezika C je jezik C++ koji se, u trenutku nastanka, mogao smatrati njegovim objektno-orijentisanim proširenjem. Kreirao ga je Bjern Stroustrup\footnote{Bjarne Stroustrup (1950), danski informatičar} 1986. godine \cite{programiranje2}. On je došao na ideju jezika \textquote{C sa klasama}, inspirisan klasama Simula 67 programskog jezika. Kasnije je taj projekat proširivan, inspirisan i drugim jezicima.
 \textquote{Tada sam razmatrao Modula-2, Ada, Smalltalk, Mesa i Clu kao alternative C-u i izvor ideja za C++ tako da nije bilo manjka inspiracije. Međutim samo su C, Simula, ALGOL 68 i u jednom slučaju BCPL ostavili primetnog traga u C++ iz 1985. Simula je dala klase, ALGOL 68, preopterećenje operatora, reference i mogućnost da se deklarišu promenljive bilo gde unutar bloka, a BCPL je dao // komentare.}\\
-C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C.\\
+C++ je i dalje jedan od najpopularnijih jezika i koristi se za razvoj zahtevnih aplikacija, s jedne strane zbog svojih objektno-orijentisanih svojstava, a s druge zbog bliske veze sa mašinom, u duhu jezika C \cite{programiranje2}.\\
 
 Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
 \begin{itemize}
@@ -64,32 +64,38 @@ Neka od svojstava jezika C++ koja ne postoje u jeziku C su:
     \item range for petlje koje zamenjuju idiomske petlje za prolazak kroz niz proizvoljnog tipa podataka.
 \end{itemize}
 
-\begin{tabular}{|c|c|c|}
-\hline
-Osobina & C & C++ \\
-\hline
-Programska & \multirow{2}{5.5em}{Imperativna} & Objektno- \\
-paradigma & & -orijentisana\\
-\hline
-Osnova & Asembler & Jezik C \\
-\hline
-Pretprocesorske direktive & Podržane & Podržane\\
-\hline
-Pristup u programiranju & Sa vrha - naniže & Sa dna - naviše\\
-\hline
-\multirow{3}{4em}{Alokacija memorije} & Korišćenjem  & \multirow{3}{5.5em}{Korišćenjem ključnih reči}\\
-& bibliotečkih & \\
-& funkcija &\\
-\hline
-Prenos argumenata & \multirow{2}{5.5em}{Po vrednosti} & Po vrednosti\\
-funkcije & & i po referenci\\
-\hline
-Pokazivači & Podržani & Podržani\\
-\hline
-Upravljanje & \multirow{2}{6.2em}{Nije podržano} & \multirow{2}{4em}{Podržano} \\
-izuzecima & &\\
-\hline
-\end{tabular}
+U narednoj tabeli prikazane su još neke razlike između jezika C i C++.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Osobina & C & C++ \\
+    \hline
+    Programska & \multirow{2}{5.5em}{Imperativna} & Objektno- \\
+    paradigma & & -orijentisana\\
+    \hline
+    Osnova & Asembler & Jezik C \\
+    \hline
+    Pretprocesorske direktive & Podržane & Podržane\\
+    \hline
+    Pristup u programiranju & Sa vrha - naniže & Sa dna - naviše\\
+    \hline
+    \multirow{3}{4em}{Alokacija memorije} & Korišćenjem  & \multirow{3}{5.5em}{Korišćenjem ključnih reči}\\
+    & bibliotečkih & \\
+    & funkcija &\\
+    \hline
+    Prenos argumenata & \multirow{2}{5.5em}{Po vrednosti} & Po vrednosti\\
+    funkcije & & i po referenci\\
+    \hline
+    Pokazivači & Podržani & Podržani\\
+    \hline
+    Upravljanje & \multirow{2}{6.2em}{Nije podržano} & \multirow{2}{4em}{Podržano} \\
+    izuzecima & &\\
+    \hline
+    \end{tabular}
+    \caption{Razlike između jezika C i C++}
+    \label{tab:razlike}
+\end{table}
 
 \subsection{Pristupi u programiranju}
 
@@ -111,7 +117,7 @@ Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pr
 \label{fig:ckod}
 \end{figure}
 
-Na slici \ref{fig:ckod} prikazan je način na koji se u jeziku C obično sprovodi kreiranje, pristupanje, i oslobađanje dinamički alocirane memorije. 
+Na slici \ref{fig:ckod} prikazan je način na koji se u jeziku C obično sprovodi kreiranje, pristupanje, i oslobađanje dinamički alocirane memorije.
 \end{primer}
 
 \begin{primer} Program koji učitava vrednosti u dinamički alociran niz, a potom ih ispisuje, napisan u jeziku C++.
@@ -187,7 +193,4 @@ C i C++ su jezici sa velikim značajem, kako u istoriji programiranja tako i u d
 \bibitem{relevanceofc}The relevance of C in systems programming. LupLab  Department of Computer Science, at the University of California, Davis on-line at: https://luplab.cs.ucdavis.edu/2021/03/08/the-relevance-of-c-in-systems-programming.html
 \bibitem{efficiency} R. Pereira, M. Couto, F. Ribeiro, R. Rua, J. Cunha, J. Paulo Fernandes, J. Saraiva.  \emph{Energy Efficiency across Programming Languages}. SLE 2017: Proceedings of the 10th ACM SIGPLAN International Conference on Software Language Engineering, Pages 256–267, October 2017.
 \end{thebibliography}
-%\appendix
-%\section{Dodatak}
-%Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
 \end{document}
