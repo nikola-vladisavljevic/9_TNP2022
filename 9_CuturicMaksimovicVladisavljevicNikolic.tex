@@ -108,7 +108,7 @@ Sa druge strane, sa objekno-orijentisanim jezicima, dosta pristupačniji postaje
 Jezik C daje mogućnost direktnog upravljanja \emph{heap} segmentom memorije, pretežno koristeći se funkcijama \emph{malloc, calloc, realloc} i \emph{free}. Iako C++ podržava ove funkcije, ponuđena je i nova alternativa. Koriščenjem ključnih reči \emph{new} i \emph{delete}, moguće je na nešto jednostavniji i elegantniji način upravljati dinamički alociranom memorijom. Ovi operatori, iako funkcionišu na sličan način kao i funkcije \emph{malloc} i \emph{free}, proširuju mougćnosti u skladu sa objektno-orijentisanom paradigmom. To znači da pri alokaciji memorije za objekte korišćenjem operatora \emph{new}, poziva se i konstruktor klase datog objekta, što nije slučaj pri upotrebi funkcije \emph{malloc}. Analogno važi i za operator \emph{delete} i funkciju \emph{free}. Primer alokacije daćemo kroz dva primer istog programa u jeziciima C i C++ koji dinamički alocira niz celih brojeva, koji se unose, a potom ispisuju.
 
 \begin{primer} Program koji učitava vrednosti u dinamički alociran niz, a potom ih ispisuje, napisan u jeziku C.
-
+\newpage
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{c_kod_dinamicka_alokacija.eps}
@@ -142,9 +142,7 @@ U standardnoj biblioteci jezika C ne postoji implementiran sistem za upravljanje
 
 Iz ovih razloga, programski jezik C++ uvodi upravljanje grešaka kroz ključne reči \emph{try, throw} i \emph{catch}. Ideja je, da se u \emph{try}-bloku nalazi kod u kojem očekujemo greške, tj. izuzetke, nakon kojeg sledi bar jedan \emph{catch}-blok koji se izvršava ako je pronađen odgovarajući izuzetak. Unutar \emph{try}-bloka se na mestu pronađene greške nalazi ključna reč \emph{throw}, koja obustavlja dalje izvršavanje bloka, i ,,baca'', tj. daje informaciju, obično vrednost prostog tipa, ili, češće, objekat sa informacijama o nastalom izuzetku. Na osnovu tipa koji je ,,bačen'', pronalazi se odgovarajući \emph{catch}-blok se izvršava, tj. on ,,hvata'' odgovarajući izuzetak.
 
-Ovakav pristup upravljanju izuzecima ima dve značajne prednosti. Prvo, kod koji se bavi izuzecima je odvojen od glavnog koda, što poboljšava razumljivost. Drugo, omogućeno je programeru da bira, koje će izuzetke obraditi. Naime, pošto je moguće pri različitim izuzecima ,,baciti'' različite tipove vrednosti, moguće je birati koje tipove vrednosti ili klase objekata obrađivati zasebno, a koje ne.
-
-% možda primer koda
+Ovakav pristup upravljanju izuzecima ima dve značajne prednosti. Prvo, kod koji se bavi izuzecima je odvojen od glavnog koda, što poboljšava razumljivost. Drugo, omogućeno je programeru da bira, koje će izuzetke obraditi. Naime, pošto je moguće pri različitim izuzecima ,,baciti'' različite tipove vrednosti, moguće je birati koje tipove vrednosti ili klase objekata obrađivati zasebno, a koje ne\cite{exceptions}.
 
 \section{Gde se C danas koristi}
 Iako je programski jezik C bio namenjen pre svega pisanju sistemskog softvera, usled njegove velike popularnosti koristio se i kao jezik opšte namene. Vremenom su mnoge uloge koje je programski jezik C imao od svog nastanka 1972. godine preuzeli drugi, moderniji programski jezici. Međutim i danas 50 godina nakon svog nastanka programski jezik C ima veliku popularnost. Neke od oblasti primena programskog jezika C danas su:
